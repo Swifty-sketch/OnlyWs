@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <link rel="stylesheet" href="nav.css">
+    <link rel="stylesheet" href="footercss.css">
+    <script src="data.js"></script>
+    <title>OnlyWs</title>
+</head>
+
+<body>
+    <style type="text/css">
+        body {
+            background-color: #641515;
+        }
+        
+        #diceImage {
+            margin-top: -60%;
+        }
+        
+        #tosText,
+        #tosText2 {
+            width: 50%;
+        }
+    </style>
+
+    <!--Navbar-->
+    <nav class="navbar is-fixed-top" role="navigation" aria-label="main navigation">
+        <div class="navbar-brand">
+            <a class="navbar-item" href="index.html">
+                <header class="has-text-weight-semibold">OnlyWs</header>
+            </a>
+            <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+            </a>
+        </div>
+
+        <div id="navbarBasicExample" class="navbar-menu">
+            <div class="navbar-start">
+                <a class="navbar-item" href="index.html"> Home </a>
+                <div class="navbar-item has-dropdown is-hoverable">
+                    <a class="navbar-link"> Games </a>
+                    <div class="navbar-dropdown">
+                        <a href="blackjackPage.html" class="navbar-item"> Blackjack </a>
+                        <a href="slot.html" class="navbar-item"> Slots </a>
+                        <a href="wheel.html" class="navbar-item"> Lucky Spin </a>
+                        <hr class="navbar-divider">
+                        <a class="navbar-item"> Coming soon </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="navbar-end">
+                <div class="navbar-item">
+                    <p id="cashAmount" class="moneyAmount mr-3">Cash: 0$</p>
+                    <div class="buttons">
+                        <a href="deposit.html" id="DepoBtn" class="button has-text-weight-semibold mr-3">
+                            <strong>Wallet</strong>
+                        </a>
+                        <a href="login.html" id="signupBtn" class="button is-light has-text-weight-semibold"> Sign up </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!--Middle section-->
+    <section id="mainSection" class="  mt-6">
+        <div class="hero columns is-7-desktop">
+            <div class="hero-body">
+                <h1 class="is-size-1 has-text-weight-semibold has-text-white manage">OnlyWs</h1>
+                <p class="has-text-white has-text-weight-bold">Make sure to be logged in! Or else you wont be able to lose all your money.</p>
+                <p class="has-text-white">Your rigged gambling site.</p>
+                </br>
+                <h2 id="tosText" class="has-text-white has-text-weight-semibold"> The Site is operated by Joe mama (the “Company”, “we” “our” or “us”). </br>
+                    </br> In addition to these Terms of Service, the Privacy Policy which can be found here (the “Privacy Policy”) applies to your use of the Site and the Services (as defined below). The Privacy Policy is incorporated by reference into the
+                    Terms of Service and forms an integral part thereof. The Terms of Service and the Privacy Policy shall collectively be referred to as the “Agreement” which constitutes a binding legal agreement between you and us as well as governing
+                    the relationship between you and us. </h2>
+                </br>
+                <h2 id="tosText2" class="has-text-white has-text-weight-semibold"> 1. Your Agreement to Our Terms If you do not agree with the terms of service, the privacy policy or any other policy or procedure document provided on the Website you should immediately cease all use of the content and services. </br>
+                    </br>By continuing to use the Website you confirm that you are aware that any policy or terms of use may be updated by the Website at any time without the need for notification. All changes to a process or procedure will appear on the relevant
+                    page on the Website. You agree that it is your responsibility to ensure you are up to date with the latest amendments by visiting the relevant information resources and reading them. Your failure to do so has no impact on the Websites
+                    right and ability to enforce the documented changes. </br>
+                    </br>You agree that you have no rights to any of the content or services offered by Website, even in the event that you create a free user account or join a mailing list, and that the Website can terminate your use of the Website and restrict
+                    your access to its content and services should it be deemed necessary. In such an instance you agree that you have no legal recourse against the Website and are not due to any financial compensation. You agree that it is your responsibility
+                    to educate yourself on the laws governing participation in online gambling and the use of online gambling services in the country and local area where you reside. Should you be found to be in contravention of any applicable laws and/or
+                    regulations of any jurisdiction that applies to your residence, you waive the right to hold the Website liable in any pursuant legal actions, either brought by yourself or raised against you by a 3rd party. This includes any class
+                    action suits or trial by jury. By choosing to visit and make use of the information and services offered by the Website you agree to fully indemnify and defend us, our officers, directors, employees, and suppliers from and against
+                    all claims, liabilities, legal proceedings, damages, losses, liabilities, fines and expenses of any kind (including but not limited to legal fees for any and all related hearings and consultations). </h2>
+                <img id="diceImage" class=" is-pulled-right" src="https://cdn-icons-png.flaticon.com/512/390/390955.png" width="30%" height="40%">
+            </div>
+        </div>
+    </section>
+
+    <!--Footer-->
+    <footer class="footer">
+        <div class="content has-text-centered">
+            <section class="  mt-6">
+                <div id="bottomDiv" class="hero columns is-7-desktop">
+                    <div class="hero-body">
+                    </div>
+                    <p id="bottomText" class=" has-text-white has-text-weight-semibold">Winnings have been calculated using historical data from players who have been referred directly by this website since 1995. This is not a live feed but a statistical calculation based on 18 years of data from our top recommended casinos.
+                        The figure is calculated using every winning wager placed by players and does not take into account losses. Please remember to always gamble responsibly.</p>
+                    </br>
+                    <p id="credits" class=" has-text-white">Designed & Coded by: Marsel and Rune</p>
+                </div>
+            </section>
+        </div>
+    </footer>
+
+</body>
+
+</html>

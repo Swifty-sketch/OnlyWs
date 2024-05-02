@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="nav.css">
+    <link rel="stylesheet" href="wheelcss.css">
+    <link rel="stylesheet" href="footercss.css">
+    <script src="data.js"></script>
+    <title>Lucky Wheel - OnlyWs</title>
+</head>
+
+<style type="text/css">
+    #bottom {
+        margin-top: 4%;
+    }
+</style>
+
+<body>
+
+    <!--Navbar-->
+    <nav class="navbar is-fixed-top" role="navigation" aria-label="main navigation">
+        <div class="navbar-brand">
+            <a class="navbar-item" href="index.html">
+                <header class="has-text-weight-semibold">OnlyWs</header>
+            </a>
+            <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+            </a>
+        </div>
+        <div id="navbarBasicExample" class="navbar-menu">
+            <div class="navbar-start">
+                <a class="navbar-item" href="index.html"> Home </a>
+                <div class="navbar-item has-dropdown is-hoverable">
+                    <a class="navbar-link"> Games </a>
+                    <div class="navbar-dropdown">
+                        <a href="blackjackPage.html" class="navbar-item"> Blackjack </a>
+                        <a href="slot.html" class="navbar-item"> Slots </a>
+                        <a href="wheel.html" class="navbar-item"> Lucky Spin </a>
+                        <hr class="navbar-divider">
+                        <a class="navbar-item"> Coming soon </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="navbar-end">
+                <div class="navbar-item">
+                    <p id="cashAmount" class="moneyAmount mr-3">Cash: 0$</p>
+                    <div class="buttons">
+                        <a href="deposit.html" id="DepoBtn" class="button has-text-weight-semibold mr-3">
+                            <strong>Wallet</strong>
+                        </a>
+                        <a href="login.html" id="signupBtn" class="button is-light has-text-weight-semibold"> Sign up </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!--Wheel-->
+    <div>
+        <p class="result">Lucky Wheel <span id="colorResult"></span>
+        </p>
+        <div class="box">
+            <canvas></canvas>
+            <p id="Earnings">Earnings: </p>
+            <form>
+                <button type="button" id="btnSpin">Spin</button>
+                <label>Bet amount ($):</label>
+                <input type="btn" id="inputAmount">
+                <p id="colorLanded">Picked: </p>
+            </form>
+        </div>
+    </div>
+
+    <!--Footer-->
+    <footer id="bottom" class="footer">
+        <div class="content has-text-centered">
+            <section class="  mt-6">
+                <div id="bottomDiv" class="hero columns is-7-desktop">
+                    <div class="hero-body">
+                    </div>
+                    <p id="bottomText" class=" has-text-white has-text-weight-semibold">Winnings have been calculated using historical data from players who have been referred directly by this website since 1995. This is not a live feed but a statistical calculation based on 18 years of data from our top recommended casinos.
+                        The figure is calculated using every winning wager placed by players and does not take into account losses. Please remember to always gamble responsibly.</p>
+                    </br>
+                    <p id="credits" class=" has-text-white">Designed & Coded by: Marsel and Rune</p>
+                </div>
+            </section>
+        </div>
+    </footer>
+
+    <!--JS-->
+    <script>
+        const canvas = document.querySelector('canvas');
+        const btnSpin = document.querySelector('#btnSpin');
+        const colorResult = document.querySelector('#colorResult');
+        const ctx = canvas.getContext('2d');
+        const WIDTH = window.innerWidth > 500 ? 500 : window.innerWidth;
+        const HEIGHT = WIDTH;
+        const RADIUS = WIDTH / 2 - 30;
+        const FPS = 120;
+        var red = '#FF6961';
+        var green = '#C1E1C1';
+        var golden = '#343434';
+        const COLORS = [
+            red,
+            green,
+            red,
+            green,
+            red,
+            green,
+            red,
+            green,
+            red,
+            green,
+            red,
+            green,
+            red,
+            green,
+            red,
+            green,
+            golden,
+
+        ];
+
+        let now;
+        let then = Date.now();
+        let interval = 1000 / FPS;
+        let delta;
+        let rotate = 0;
+        let deceleration = 0;
+        let isRotating = false;
+        let resultIndex = -1;
+
+        //Wheel
+        class Wheel {
+            constructor(x, y, radius, background, border, rotate = 0) {
+                this.x = x;
+                this.y = y;
+                this.rotate = rotate;
+                this.radius = radius;
+                this.border = border;
+                this.background = background;
+            }
+
+            draw() {
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.radius + this.border, 0, Math.PI * 2, false);
+                ctx.fillStyle = 'white';
+                ctx.fill();
+                ctx.closePath();
+                ctx.rotate(-Math.PI / 10);
+                COLORS.forEach((color, index) => {
+                    ctx.beginPath();
+                    ctx.moveTo(this.x, this.y);
+                    ctx.arc(this.x, this.y, this.radius,
+                        ((2 * Math.PI) / COLORS.length) * index,
+                        ((2 * Math.PI) / COLORS.length) * (index + 1), );
+                    ctx.fillStyle = color;
+                    ctx.textContent = "hi";
+                    ctx.fill();
+                    ctx.closePath();
+                });
+            }
+
+            update() {
+                ctx.save();
+                ctx.translate(WIDTH / 2, HEIGHT / 2);
+                ctx.rotate(this.rotate);
+                this.draw();
+                ctx.restore();
+            }
+        }
+
+        //Arrow
+        class Arrow {
+            constructor() {
+                this.x = WIDTH / 1.98;
+                this.y = HEIGHT / 2.05;
+            }
+            draw() {
+                ctx.translate(RADIUS - 2, 0);
+                ctx.beginPath();
+                ctx.moveTo(this.x, this.y);
+                ctx.lineTo(this.x + 24, this.y - 12);
+                ctx.lineTo(this.x + 24, this.y + 12);
+                ctx.lineTo(this.x, this.y);
+                ctx.fillStyle = 'red';
+                ctx.fill();
+                ctx.stroke();
+                ctx.closePath();
+            }
+        }
+
+        //Spinning function
+        const run = () => {
+            if (resultIndex !== -1 && !isRotating) {
+                window.cancelAnimationFrame(run);
+                return;
+            } else {
+                colorResult.textContent = '';
+            }
+            window.requestAnimationFrame(run);
+            now = Date.now();
+            delta = now - then;
+            if (delta > interval) {
+                then = now - (delta % interval);
+                canvas.width = WIDTH;
+                canvas.height = HEIGHT;
+                const wheel = new Wheel(0, 0, RADIUS, 'black', 10, rotate);
+                const arrow = new Arrow();
+                ctx.clearRect(0, 0, WIDTH, HEIGHT);
+                wheel.update();
+                arrow.draw();
+
+                // variables
+                var chosenRed = COLORS[resultIndex].includes(red); //Loss
+                var chosenGreen = COLORS[resultIndex].includes(green); //Win
+                let inputAmount = document.getElementById("inputAmount").value; //Bet amount
+                var cashString = document.getElementById("cashAmount").textContent; //Cash
+                var cash = parseInt(cashString.replace(/\D/g, "")); //Get numbers only from string (convert to int)
+
+                const MyUser = JSON.parse(localStorage.getItem("Curent_User"))
+                const profile = JSON.parse(localStorage.getItem(MyUser.email))
+                if (deceleration > 0) {
+                    rotate += deceleration;
+                    deceleration -= 0.01;
+
+                    document.getElementById("btnSpin").style.opacity = 0; // Hide middle btn
+                    btnSpin.disabled = true;
+                    document.getElementById("Earnings").innerHTML = "Earnings: ..$";
+                    document.getElementById("colorLanded").innerHTML = "Picked: ...";
+
+                } else {
+                    document.getElementById("btnSpin").style.opacity = 1;
+                    btnSpin.disabled = false;
+                    isRotating = false;
+
+                    if (parseInt(inputAmount) > profile.money) { // Balance check
+                        document.getElementById("Earnings").innerHTML = "You do not have enough $. No reward given";
+                    } else { // Rewards
+                        if (chosenRed) {
+                            reward = inputAmount * 0;
+                            cash = cash - inputAmount;
+                            profile.money = profile.money - inputAmount;
+
+
+                            document.getElementById("cashAmount").innerHTML = "Cash: " + profile.money + "$" // Show monet after spin
+                            document.getElementById("colorLanded").innerHTML = "Picked: Red (0x)"; // Show chosen color
+                            document.getElementById("Earnings").innerHTML = "Earnings: 0$"; // Amount won
+                            localStorage.setItem(MyUser.email, JSON.stringify(profile));
+
+                        } else if (chosenGreen) {
+                            reward = inputAmount * 2; // Reward amount for green
+                            intReward = parseInt(reward); //Convert to int
+                            cash = cash - inputAmount; // Balance fix
+                            cash = cash + intReward; // Balance + reward amount
+
+                            profile.money = profile.money + intReward;
+
+
+
+                            document.getElementById("cashAmount").innerHTML = "Cash: " + profile.money + "$"
+                            document.getElementById("colorLanded").innerHTML = "Picked: Green (3x)";
+                            document.getElementById("Earnings").innerHTML = "Earnings: " + reward.toFixed(2) + "$";
+                            localStorage.setItem(MyUser.email, JSON.stringify(profile));
+                        } else {
+                            reward = inputAmount * 15;
+                            intReward = parseInt(reward);
+                            cash = cash - inputAmount;
+                            cash = cash + intReward;
+                            profile.money = profile.money + intReward;
+
+                            document.getElementById("cashAmount").innerHTML = "Cash: " + profile.money + "$"
+                            document.getElementById("colorLanded").innerHTML = "Picked: Rare! (15x)";
+                            document.getElementById("Earnings").innerHTML = "Earnings: " + reward.toFixed(2) + "$";
+                            localStorage.setItem(MyUser.email, JSON.stringify(profile));
+                        }
+                    }
+                }
+            }
+        };
+
+        (() => { //Random spin
+            run();
+            btnSpin.addEventListener('click', () => {
+                window.requestAnimationFrame(run);
+                const index = Math.round(Math.random() * (COLORS.length - 1));
+                rotate = ((2 * Math.PI) / COLORS.length) * -index;
+                resultIndex = index;
+                if (!isRotating) {
+                    isRotating = true;
+                    deceleration = 2;
+                } else {
+                    btnSpin.textContent = 'Spin';
+                    deceleration = 0;
+                    isRotating = false;
+                }
+            });
+        })();
+    </script>
+</body>
+
+</html>

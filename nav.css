@@ -1,0 +1,14 @@
+.navbar {
+    background-color: white;
+    border-bottom: solid;
+}
+
+.navbar a,
+#cashAmount {
+    font-family: monospace;
+}
+
+#DepoBtn {
+    background-color: green;
+    color: white;
+}

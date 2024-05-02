@@ -1,0 +1,154 @@
+body {
+    background-color: #641515;
+    padding-top: 2%;
+}
+
+form {
+    color: white;
+}
+
+#Random_label,
+#inputAmount {
+    margin-top: 3%;
+}
+
+a {
+    color: #283593;
+    text-decoration: none;
+}
+
+h3 {
+    margin-top: 12px;
+}
+
+* {
+    margin: 0px;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+}
+
+main {
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    outline-style: solid;
+    border-radius: 5px;
+    background-color: rgb(253, 252, 252);
+    margin-top: 5%;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-left: calc((100% - 580px) / 2);
+    width: 600px;
+}
+
+section#status {
+    margin-bottom: 25px;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    border-radius: 5px;
+    text-align: center;
+    background-color: #2b2a2a;
+    color: #FFFFFF;
+    font-size: 25px;
+    font-family: 'Roboto Mono', monospace;
+}
+
+section#Slots {
+    border-radius: 5px;
+    background-color: #FAFAFA;
+    outline-style: solid;
+    padding-left: -10px;
+    padding-right: -10px;
+}
+
+section#Gira {
+    margin-top: 25px;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    border-radius: 5px;
+    text-align: center;
+    background-color: #2b2a2a;
+    color: #FFFFFF;
+    font-size: 25px;
+}
+
+section#Gira:active {
+    background-color: #aba6a6;
+}
+
+section#options {
+    margin-top: 20px;
+    padding-top: 5px;
+    border-radius: 5px;
+    background-color: #aba6a6;
+    color: #FFFFFF;
+}
+
+.option {
+    padding-left: 5px;
+}
+
+section#info {
+    background-color: #2b2b2b;
+    padding-left: 12px;
+    padding-bottom: 12px;
+    border-radius: 5px;
+    overflow: hidden;
+    animation-duration: 1s;
+    color: #BDBDBD;
+    margin-top: 50px;
+    margin-left: 30%;
+    margin-right: 30%;
+    display: none;
+}
+
+#slot1,
+#slot2,
+#slot3 {
+    display: inline-block;
+    margin-top: 5px;
+    margin-left: 17px;
+    margin-right: 17px;
+    background-size: 150px;
+    width: 150px;
+    height: 150px;
+}
+
+.a1 {
+    background-image: url("res/tiles/seven.png");
+}
+
+.a2 {
+    background-image: url("res/tiles/cherries.png");
+}
+
+.a3 {
+    background-image: url("res/tiles/club.png");
+}
+
+.a4 {
+    background-image: url("res/tiles/diamond.png");
+}
+
+.a5 {
+    background-image: url("res/tiles/heart.png");
+}
+
+.a6 {
+    background-image: url("res/tiles/spade.png");
+}
+
+.a7 {
+    background-image: url("res/tiles/joker.png");
+}
+
+.footer {
+    margin-top: 3%;
+}
+
+#slotWonAmount,
+#Random_label {
+    color: black;
+}

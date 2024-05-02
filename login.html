@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <link rel="stylesheet" href="nav.css">
+    <script src="data.js"></script>
+    <title>Login in</title>
+</head>
+
+<body>
+
+    <style type="text/css">
+        .column {
+            margin-top: 60px;
+        }
+        
+        #CreateBtn {
+            box-shadow: 0px 1px 7px 2px rgba(0, 0, 0, 0.3);
+        }
+        
+        #CreateBtn {
+            background-color: rgb(75, 141, 73);
+        }
+    </style>
+
+    <!--Navbar-->
+    <nav class="navbar is-fixed-top" role="navigation" aria-label="main navigation">
+        <div class="navbar-brand">
+            <a class="navbar-item" href="index.html">
+                <header class="has-text-weight-semibold">OnlyWs</header>
+            </a>
+            <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+            </a>
+        </div>
+        <div id="navbarBasicExample" class="navbar-menu">
+            <div class="navbar-start">
+                <a class="navbar-item" href="index.html"> Home </a>
+                <div class="navbar-item has-dropdown is-hoverable">
+                    <a class="navbar-link"> Games </a>
+                    <div class="navbar-dropdown">
+                        <a href="blackjackPage.html" class="navbar-item"> Blackjack </a>
+                        <a href="slot.html" class="navbar-item"> Slots </a>
+                        <a href="wheel.html" class="navbar-item"> Lucky Spin </a>
+                        <hr class="navbar-divider">
+                        <a class="navbar-item"> Coming soon </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="navbar-end">
+                <div class="navbar-item">
+                    <p id="cashAmount" class="moneyAmount mr-3">Cash: 0$</p>
+                    <div class="buttons">
+                        <a href="deposit.html" id="DepoBtn" class="button has-text-weight-semibold mr-3">
+                            <strong>Wallet</strong>
+                        </a>
+                        <a href="login.html" id="signupBtn" class="button is-light has-text-weight-semibold"> Sign up </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!--Form-->
+    <form>
+        <div class="column is-offset-4 is-5-desktop">
+            <div class="field">
+                <h2 class="has-text-centered is-size-4 has-text-weight-semibold pt-4">Create a account</h2>
+                <hr>
+                <label class="has-text-weigth-semibold is-size-4">Full Name</label>
+                <p class="control has-icons-left has-icons-right mt-4">
+                    <input id="inputName" class="input" type="name" placeholder="Name" required>
+                    <span class="icon is-small is-left">
+              <i class="fas fa-person"></i>
+            </span>
+
+                </p>
+            </div>
+            <div class="field">
+                <label class="has-text-weigth-semibold is-size-4">Email</label>
+                <p class="control has-icons-left mt-4">
+                    <input id="inputEmail" class="input" type="email" placeholder="Email" required>
+                    <span class="icon is-small is-left">
+              <i class="fas fa-envelope"></i>
+            </span>
+                </p>
+            </div>
+            <div class="field">
+                <label class="has-text-weigth-semibold is-size-4">Password</label>
+                <p class="control has-icons-left mt-4">
+                    <input id="inputPassword" class="input" type="password" placeholder="Password" required>
+                    <span class="icon is-small is-left">
+              <i class="fas fa-lock"></i>
+            </span>
+                </p>
+            </div>
+            <div class="field">
+                <label class="has-text-weigth-semibold is-size-4">Repeat Password</label>
+                <p class="control has-icons-left mt-4">
+                    <input id="repeatPassword" class="input" type="password " placeholder="Reapeat Password" required>
+                    <span class="icon is-small is-left">
+              <i class="fas fa-lock"></i>
+            </span>
+                </p>
+            </div>
+            <button class="has-text-weigth-semibold button btn is-primary is-fullwidth mt-4" id="CreateBtn" onclick="accountCreate(), href='loginfully.html' ">Create</button>
+            <h1 class="has-text-centered">Already have a account? <a href="loginfully.html">Login in</a>
+            </h1>
+        </div>
+    </form>
+
+</body>
+
+</html>

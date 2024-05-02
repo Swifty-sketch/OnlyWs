@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <link rel="stylesheet" href="nav.css">
+    <link rel="stylesheet" href="footercss.css">
+    <link rel="stylesheet" href="slot.css">
+    <script src="data.js"></script>
+    <title>Slot Machine</title>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Roboto');
+        @import url('https://fonts.googleapis.com/css?family=Roboto+Mono');
+    </style>
+
+</head>
+<html>
+
+<body>
+
+    <!--Navbar-->
+    <nav class="navbar is-fixed-top" role="navigation" aria-label="main navigation">
+        <div class="navbar-brand">
+            <a class="navbar-item" href="index.html">
+                <header class="has-text-weight-semibold">OnlyWs</header>
+            </a>
+            <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+            </a>
+        </div>
+        <div id="navbarBasicExample" class="navbar-menu">
+            <div class="navbar-start">
+                <a class="navbar-item" href="index.html"> Home </a>
+                <div class="navbar-item has-dropdown is-hoverable">
+                    <a class="navbar-link"> Games </a>
+                    <div class="navbar-dropdown">
+                        <a href="blackjackPage.html" class="navbar-item"> Blackjack </a>
+                        <a href="slot.html" class="navbar-item"> Slots </a>
+                        <a href="wheel.html" class="navbar-item"> Lucky Spin </a>
+                        <hr class="navbar-divider">
+                        <a class="navbar-item"> Coming soon </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="navbar-end">
+                <div class="navbar-item">
+                    <p id="cashAmount" class="moneyAmount mr-3">Cash: 0$</p>
+                    <div class="buttons">
+                        <a href="deposit.html" id="DepoBtn" class="button has-text-weight-semibold mr-3">
+                            <strong>Wallet</strong>
+                        </a>
+                        <a href="login.html" id="signupBtn" class="button is-light has-text-weight-semibold"> Sign up </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+
+    <main>
+        <section id="status">Slots</section>
+        <section id="Slots">
+            <div id="slot1" class="a1"></div>
+            <div id="slot2" class="a1"></div>
+            <div id="slot3" class="a1"></div>
+        </section>
+
+        <form>
+            <section onclick="doSlot()" id="Gira">TAKE A SPIN!</section>
+            <label id="Random_label">Bet amount ($): </label>
+            <input type="btn" id="inputAmount">
+            <p id="slotWonAmount">Earnings: </p>
+        </form>
+
+    </main>
+
+    <!--Footer-->
+    <footer id="bottom" class="footer">
+        <div class="content has-text-centered">
+            <section class="  mt-6">
+                <div id="bottomDiv" class="hero columns is-7-desktop">
+                    <div class="hero-body">
+                    </div>
+                    <p id="bottomText" class=" has-text-white has-text-weight-semibold">Winnings have been calculated using historical data from players who have been referred directly by this website since 1995. This is not a live feed but a statistical calculation based on 18 years of data from our top recommended casinos.
+                        The figure is calculated using every winning wager placed by players and does not take into account losses. Please remember to always gamble responsibly.</p>
+                    </br>
+                    <p id="credits" class=" has-text-white">Designed & Coded by: Marsel and Rune</p>
+                </div>
+            </section>
+        </div>
+    </footer>
+
+    <script src="slot.js"></script>
+
+</body>
+
+</html>

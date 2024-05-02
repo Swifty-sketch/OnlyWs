@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Black Jack</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <link rel="stylesheet" href="nav.css">
+    <link rel="stylesheet" href="footercss.css">
+    <link rel="stylesheet" href="blackjackstyle.css">
+    <script src="blackjack.js"></script>
+</head>
+
+<body>
+
+    <!--Navbar-->
+    <nav class="navbar is-fixed-top" role="navigation" aria-label="main navigation">
+        <div class="navbar-brand">
+            <a class="navbar-item" href="index.html">
+                <header class="has-text-weight-semibold">OnlyWs</header>
+            </a>
+            <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+            </a>
+        </div>
+
+        <div id="navbarBasicExample" class="navbar-menu">
+            <div class="navbar-start">
+                <a class="navbar-item" href="index.html"> Home </a>
+                <div class="navbar-item has-dropdown is-hoverable">
+                    <a class="navbar-link"> Games </a>
+                    <div class="navbar-dropdown">
+                        <a href="blackjackPage.html" class="navbar-item"> Blackjack </a>
+                        <a href="slot.html" class="navbar-item"> Slots </a>
+                        <a href="wheel.html" class="navbar-item"> Lucky Spin </a>
+                        <hr class="navbar-divider">
+                        <a class="navbar-item"> Coming soon </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="navbar-end">
+                <div class="navbar-item">
+                    <p id="cashAmount" class="moneyAmount mr-3">Cash: $</p>
+                    <div class="buttons">
+                        <a href="deposit.html" id="DepoBtn" class="button has-text-weight-semibold mr-3">
+                            <strong>Wallet</strong>
+                        </a>
+                        <a href="login.html" id="signupBtn" class="button is-light has-text-weight-semibold"> Sign up </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div id="Blackjack_container">
+        <h1 id="BigName">Blackjack</h1>
+        <h2 class="ClassName">Dealer: <span id="dealer-sum"></span></h2>
+        <div id="dealer-hand">
+            <img id="hidden" src="./cards/BACK.png">
+        </div>
+
+        <h2 class="ClassName">You: <span id="player-sum"></span></h2>
+        <div id="player-hand">
+            <img id="placeholdercard" name="placeholdercard" src="./cards/BACK.png">
+        </div>
+
+        <br>
+        <div id="blackjack-button">
+            <button class="button-27" id="hit">Hit</button>
+            <button class="button-27" id="stand" onclick="updatecash()">Stand</button>
+            <button class="button-27" id="restart" onclick=Restart()>Start</button>
+            <p id="results"></p>
+        </div>
+
+        <p id="Bettamount"></p>
+        <p id="wonAmount"></p>
+
+        <div id="BettingBox">
+            <input type="button" value="50" class="dot" id="B50"></input>
+            <input type="button" value="100" class="dot" id="B100"></input>
+            <input type="button" value="250" class="dot" id="B250"></input>
+            <input type="button" value="500" class="dot" id="B500"></input>
+            <input type="button" value="1K" class="dot" id="B1K"></input>
+        </div>
+    </div>
+
+    <!--Footer-->
+    <footer id="bottom" class="footer">
+        <div class="content has-text-centered">
+            <section class="  mt-6">
+                <div id="bottomDiv" class="hero columns is-7-desktop">
+                    <div class="hero-body">
+                    </div>
+                    <p id="bottomText" class=" has-text-white has-text-weight-semibold">Winnings have been calculated using historical data from players who have been referred directly by this website since 1995. This is not a live feed but a statistical calculation based on 18 years of data from our top recommended casinos.
+                        The figure is calculated using every winning wager placed by players and does not take into account losses. Please remember to always gamble responsibly.</p>
+                    </br>
+                    <p id="credits" class=" has-text-white">Designed & Coded by: Marsel and Rune</p>
+                </div>
+            </section>
+        </div>
+    </footer>
+</body>
+
+</html>
